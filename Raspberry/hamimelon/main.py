@@ -1,4 +1,4 @@
-import sys, requests, time
+import sys, requests, time, json
 from threading import Timer
 sys.path.append("../../Common")
 from machine import fdm
@@ -14,10 +14,11 @@ def get_machine_state():
 def send_machine_state():
     info = get_machine_state()
     try:
-        print time.time() + info
-        r = requests.post("http://192.168.0.99:5000/online_machine_state", data=info, timeout=5)
-    except:
-        pass
+        print str(time.time())
+        print info
+        r = requests.post("http://192.168.0.99:5000/online_machine_state", data=json.dump(info), timeout=5)
+    except Exception, e:
+        print e
     finally:
         t = Timer(5, send_machine_state)
         t.start()
