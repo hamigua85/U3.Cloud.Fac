@@ -12,7 +12,7 @@ bootstrap = Bootstrap()
 mail = Mail()
 moment = Moment()
 db = SQLAlchemy()
-redis = Redis()
+task_redis = Redis()
 from scheduler import algorithm_one
 task_scheduler = algorithm_one.AlgorithmOne()
 
