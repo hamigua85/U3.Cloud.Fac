@@ -1,26 +1,26 @@
 class State:
-    Ready = 1
-    Preoperation = 2
-    Working = 3
-    Done = 4
-    Fault = 5
+    Ready = 'ready'
+    Preoperation = 'preoperation'
+    Working = 'working'
+    Done = 'done'
+    Fault = 'fault'
 
 
 class Type:
-    FDM = 1
-    SLM = 2
+    FDM = 'FDM'
+    SLM = 'SLM'
 
 
 class Color:
-    White = 1
-    Black = 2
-    Yellow = 3
-    Blue = 4
+    White = 'white'
+    Black = 'black'
+    Yellow = 'yellow'
+    Blue = 'blue'
 
 
 class Material:
-    ABS = 1
-    PLA = 2
+    ABS = 'ABS'
+    PLA = 'PLA'
 
 
 class Machine:
