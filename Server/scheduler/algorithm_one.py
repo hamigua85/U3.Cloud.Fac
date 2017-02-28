@@ -1,5 +1,6 @@
-import base
+import sys, base
 from app import redis
+sys.path.append("../../Common")
 from machine import fdm
 
 
