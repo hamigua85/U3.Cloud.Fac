@@ -8,6 +8,9 @@ current_machine = fdm.FDM()
 
 
 def get_machine_state():
+    current_machine.x_size = 100
+    current_machine.y_size = 100
+    current_machine.z_size = 100
     return current_machine.__dict__
 
 
