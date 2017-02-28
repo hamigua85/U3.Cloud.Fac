@@ -1,6 +1,5 @@
-import sys, requests, time, json
+import requests, time, json
 from threading import Timer
-sys.path.append("../../Common")
 from machine import fdm
 
 

@@ -14,7 +14,7 @@ moment = Moment()
 db = SQLAlchemy()
 redis = Redis()
 from scheduler import algorithm_one
-scheduler = algorithm_one.AlgorithmOne()
+task_scheduler = algorithm_one.AlgorithmOne()
 
 
 login_manager = LoginManager()

@@ -9,7 +9,7 @@ from ..models import Permission
 from werkzeug.utils import secure_filename
 import datetime, sqlite3, time
 import uuid
-from app import scheduler
+from app import task_scheduler, redis
 
 
 ALLOWED_EXTENSIONS = set(['gcode'])
@@ -196,7 +196,7 @@ def online_machines():
     if request.method == 'GET':
         cmd = request.args.get('cmd')
         if cmd == 'machine_info':
-            machines_info = scheduler.online_machine()
+            machines_info = task_scheduler.update_online_machines()
             return jsonify(machines_info)
     return render_template('online_machines.html')
 
@@ -204,6 +204,7 @@ def online_machines():
 @main.route('/online_machine_state', methods=['POST'])
 def online_machine_state():
     if request.method == 'POST':
-        pass
+        redis.set('{0} : {1}'.format(request.headers.environ['REMOTE_ADDR'], request.headers.environ['REMOTE_PORT']),
+                  request.data, 5)
         return jsonify()
 
